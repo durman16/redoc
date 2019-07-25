@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "Image4io; the image optimizer, multi-CDN and storage solution for web sites and mobile applications. You can find out more about Image4io at [https://image4.io](https://image4.io).  For this sample, you can use the api key `special-key` to test the authorization filters.",
-    "version": "1.0.0",
+    "description": "Image4io; the image optimizer, multi-CDN and storage solution for web sites and mobile applications. You can find out more about Image4io at [https://image4.io](https://image4.io).",
+    "version": "0.1.2",
     "title": "Image4io",
     "termsOfService": "http://swagger.io/terms/",
     "contact": {
@@ -17,11 +17,11 @@
   "basePath": "/v2",
   "tags": [
     {
-      "name": "pet",
-      "description": "Everything about your Pets",
+      "name": "files",
+      "description": "Everything about your Files",
       "externalDocs": {
         "description": "Find out more",
-        "url": "http://swagger.io"
+        "url": "https://image4.io"
       }
     },
     {
@@ -33,7 +33,7 @@
       "description": "Operations about user",
       "externalDocs": {
         "description": "Find out more about our store",
-        "url": "http://swagger.io"
+        "url": "https://image4.io"
       }
     }
   ],
@@ -45,9 +45,9 @@
     "/pet": {
       "post": {
         "tags": [
-          "pet"
+          "upload"
         ],
-        "summary": "Add a new pet to the store",
+        "summary": "Upload a chosen file or multiple files to a specified directory ",
         "description": "",
         "operationId": "addPet",
         "consumes": [
@@ -70,8 +70,8 @@
           }
         ],
         "responses": {
-          "405": {
-            "description": "Invalid input"
+          "400": {
+            "description": "There is no files to upload."
           }
         },
         "security": [
