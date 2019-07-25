@@ -47,9 +47,9 @@
         "tags": [
           "upload"
         ],
-        "summary": "Upload a chosen file or multiple files to a specified directory ",
-        "description": "",
-        "operationId": "addPet",
+        "summary": "Upload",
+        "description": "Upload a chosen file or multiple files to a specified directory ",
+        "original_name": "addPet",
         "consumes": [
           "application/json",
           "application/xml"
@@ -70,6 +70,15 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pet"
+              }
+            }
+          },
           "400": {
             "description": "There is no files to upload."
           }
