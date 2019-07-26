@@ -188,14 +188,16 @@
             ]
           }
         ]
-      },
+      }
+    },
+    "/move": {
       "put": {
         "tags": [
-          "pet"
+          "move"
         ],
-        "summary": "Update an existing pet",
-        "description": "",
-        "operationId": "updatePet",
+        "summary": "Move",
+        "description": "Move a file to a different directory",
+        "operationId": "move",
         "consumes": [
           "application/json",
           "application/xml"
@@ -216,14 +218,167 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pet"
+              }
+            }
+          },
           "400": {
-            "description": "Invalid ID supplied"
+            "description": "'source' and 'folder' parameters are required."
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/delete": {
+      "delete": {
+        "tags": [
+          "delete"
+        ],
+        "summary": "Delete",
+        "description": "Delete a file ",
+        "operationId": "delete",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Pet object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Pet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pet"
+              }
+            }
           },
-          "404": {
-            "description": "Pet not found"
+          "400": {
+            "description": "'source' and 'folder' parameters are required."
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/fetch": {
+      "post": {
+        "tags": [
+          "fetch"
+        ],
+        "summary": "Fetch",
+        "description": "Fetch a source from a link",
+        "operationId": "fetch",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Pet object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Pet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pet"
+              }
+            }
           },
-          "405": {
-            "description": "Validation exception"
+          "400": {
+            "description": "'source' and 'folder' parameters are required."
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/listfolder": {
+      "get": {
+        "tags": [
+          "listfolder"
+        ],
+        "summary": "List Folder",
+        "description": "List all stored files.",
+        "operationId": "listfolder",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Pet object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Pet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pet"
+              }
+            }
           }
         },
         "security": [
