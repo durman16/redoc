@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "API",
-    "description": "TODO: Add Description",
+    "title": "image4io",
+    "description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
     "contact": {},
     "version": "1.0"
   },
@@ -13,87 +13,25 @@
     }
   ],
   "paths": {
-    "/get": {
-      "get": {
-        "tags": [
-          "v0.1.1"
-        ],
-        "summary": "Get",
-        "description": "TODO: Add Description",
-        "operationId": "Get",
-        "parameters": [
-          {
-            "name": "name",
-            "in": "query",
-            "description": "",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string",
-              "example": "1de36567-bb44-496a-9dad-68ced294fe3e.jpg"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/listfiles": {
-      "get": {
-        "tags": [
-          "v0.1.1"
-        ],
-        "summary": "List Files",
-        "description": "TODO: Add Description",
-        "operationId": "ListFiles",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "deprecated": false
-      }
-    },
     "/upload": {
       "post": {
         "tags": [
-          "v0.1.1"
+          "Misc"
         ],
         "summary": "Upload",
         "description": "TODO: Add Description",
         "operationId": "Upload",
-        "parameters": [
-          {
-            "name": "folder",
-            "in": "query",
-            "description": "",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string",
-              "example": "/deneme"
-            }
-          }
-        ],
+        "parameters": [],
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
                 "required": [
-                  "tesstst"
+                  "dosya"
                 ],
                 "type": "object",
                 "properties": {
-                  "tesstst": {
+                  "dosya": {
                     "type": "string"
                   }
                 }
@@ -111,52 +49,15 @@
         "deprecated": false
       }
     },
-    "/fetch": {
-      "post": {
+    "/listfolder": {
+      "get": {
         "tags": [
-          "v0.1.1"
+          "Misc"
         ],
-        "summary": "Fetch",
+        "summary": "ListFolder",
         "description": "TODO: Add Description",
-        "operationId": "Fetch",
-        "parameters": [
-          {
-            "name": "from",
-            "in": "query",
-            "description": "",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string",
-              "example": "https://ntdstatic.azureedge.net/logo.png"
-            }
-          },
-          {
-            "name": "folder",
-            "in": "query",
-            "description": "",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string",
-              "example": "asdfasfdas/asdf"
-            }
-          },
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "explode": false,
-            "schema": {
-              "type": "string",
-              "example": "application/x-www-form-urlencoded"
-            }
-          }
-        ],
+        "operationId": "ListFolder",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "",
@@ -166,10 +67,10 @@
         "deprecated": false
       }
     },
-    "/delete": {
+    "/deletefile": {
       "delete": {
         "tags": [
-          "v0.1.1"
+          "Misc"
         ],
         "summary": "Delete",
         "description": "TODO: Add Description",
@@ -184,19 +85,7 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "example": "deneme/42767124-1cc3-4cbe-8fdb-de0bb0fb907f.jpg"
-            }
-          },
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "explode": false,
-            "schema": {
-              "type": "string",
-              "example": "application/x-www-form-urlencoded"
+              "example": "81d09c8f-b836-408b-8105-151cbc3dd637.jpg"
             }
           }
         ],
@@ -212,10 +101,10 @@
     "/copy": {
       "put": {
         "tags": [
-          "v0.1.1"
+          "Misc"
         ],
         "summary": "Copy",
-        "description": "TODO: Add Description",
+        "description": "\t",
         "operationId": "Copy",
         "parameters": [
           {
@@ -227,11 +116,11 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "example": "6f3e2ad3-00da-490c-a8d2-e3f1a372b117.jpg"
+              "example": "74110c6e-8223-4aa7-8705-3c0157daa704.jpg"
             }
           },
           {
-            "name": "folder",
+            "name": "target_path",
             "in": "query",
             "description": "",
             "required": true,
@@ -239,19 +128,7 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "example": "assadfasf"
-            }
-          },
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "explode": false,
-            "schema": {
-              "type": "string",
-              "example": "application/x-www-form-urlencoded"
+              "example": "asdfasfd1"
             }
           }
         ],
@@ -267,7 +144,7 @@
     "/move": {
       "put": {
         "tags": [
-          "v0.1.1"
+          "Misc"
         ],
         "summary": "Move",
         "description": "TODO: Add Description",
@@ -282,11 +159,11 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "example": "assadfasf/677c7737-257b-41b6-befd-692f3c4ca26d.jpg"
+              "example": "74110c6e-8223-4aa7-8705-3c0157daa704.jpg"
             }
           },
           {
-            "name": "folder",
+            "name": "target_path",
             "in": "query",
             "description": "",
             "required": true,
@@ -294,19 +171,7 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "example": "blabla2"
-            }
-          },
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "explode": false,
-            "schema": {
-              "type": "string",
-              "example": "application/x-www-form-urlencoded"
+              "example": "asdfasfd1"
             }
           }
         ],
@@ -319,35 +184,17 @@
         "deprecated": false
       }
     },
-    "/listfolder": {
-      "get": {
-        "tags": [
-          "v0.1.2"
-        ],
-        "summary": "List Folder",
-        "description": "TODO: Add Description",
-        "operationId": "ListFolder",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/CreateFolder": {
+    "/fetch": {
       "post": {
         "tags": [
-          "v0.1.2"
+          "Misc"
         ],
-        "summary": "Create Folder",
+        "summary": "Fetch",
         "description": "TODO: Add Description",
-        "operationId": "CreateFolder",
+        "operationId": "Fetch",
         "parameters": [
           {
-            "name": "path",
+            "name": "from",
             "in": "query",
             "description": "",
             "required": true,
@@ -355,91 +202,24 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "example": "asdftttasfd1/asdf3"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/deletefile": {
-      "delete": {
-        "tags": [
-          "v0.1.2"
-        ],
-        "summary": "Delete File",
-        "description": "TODO: Add Description",
-        "operationId": "DeleteFile",
-        "parameters": [
-          {
-            "name": "name",
-            "in": "query",
-            "description": "",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string",
-              "example": "finalist/2d0ed897-2b82-40a5-8f5f-531fe101cf08.jpg"
+              "example": "https://i0.wp.com/girisimler.net/wp-content/uploads/2019/05/image4io.png?fit=800,600"
             }
           },
           {
-            "name": "Content-Type",
-            "in": "header",
+            "name": "ssl",
+            "in": "query",
             "description": "",
             "required": true,
-            "style": "simple",
-            "explode": false,
+            "style": "form",
+            "explode": true,
             "schema": {
-              "type": "string",
-              "example": "application/x-www-form-urlencoded"
+              "type": "integer",
+              "format": "int32",
+              "example": 1
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/wp/getnotification": {
-      "get": {
-        "tags": [
-          "v0.1.3"
-        ],
-        "summary": "WP - Get Notification",
-        "description": "TODO: Add Description",
-        "operationId": "Wp  get notification",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/deletefolder": {
-      "delete": {
-        "tags": [
-          "v0.1.3"
-        ],
-        "summary": "Delete Folder",
-        "description": "TODO: Add Description",
-        "operationId": "DeleteFolder",
-        "parameters": [
+          },
           {
-            "name": "path",
+            "name": "target_path",
             "in": "query",
             "description": "",
             "required": true,
@@ -447,19 +227,7 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "example": "a1/asdf"
-            }
-          },
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "description": "",
-            "required": true,
-            "style": "simple",
-            "explode": false,
-            "schema": {
-              "type": "string",
-              "example": "application/x-www-form-urlencoded"
+              "example": "asdfasfd1"
             }
           }
         ],
@@ -488,13 +256,8 @@
   ],
   "tags": [
     {
-      "name": "v0.1.1"
-    },
-    {
-      "name": "v0.1.2"
-    },
-    {
-      "name": "v0.1.3"
+      "name": "Misc",
+      "description": ""
     }
   ]
 }
